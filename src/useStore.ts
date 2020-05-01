@@ -1,9 +1,9 @@
-import { HookStore, UseStore } from "./types"
-import { unwrapStore } from "./unwrapStore"
-import { useValue } from "@bytesoftio/use-value"
+import { UseStore } from "./types"
+import { StoreMapper } from "@bytesoftio/store"
+import { useStoreMapped } from "./useStoreMapped"
 
 export const useStore: UseStore = <S extends object>(initialState) => {
-  const [store] = useValue<HookStore<S>>(() => unwrapStore<S>(initialState))
+  const mapper: StoreMapper<S, S> = (state) => state
 
-  return store.use()
+  return useStoreMapped(initialState, mapper)
 }

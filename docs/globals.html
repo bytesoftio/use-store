@@ -2365,29 +2365,11 @@ img {
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-class tsd-has-type-parameter">
-			<a href="classes/store.html" class="tsd-kind-icon">Store</a>
-		</li>
-		<li class=" tsd-kind-interface tsd-has-type-parameter">
-			<a href="interfaces/hookstore.html" class="tsd-kind-icon">Hook<wbr>Store</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#createstore" class="tsd-kind-icon">Create<wbr>Store</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#hookkind" class="tsd-kind-icon">Hook<wbr>Kind</a>
-		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="globals.html#storecallback" class="tsd-kind-icon">Store<wbr>Callback</a>
-		</li>
-		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="globals.html#storediffer" class="tsd-kind-icon">Store<wbr>Differ</a>
+			<a href="globals.html#storeinitializer" class="tsd-kind-icon">Store<wbr>Initializer</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="globals.html#storemapper" class="tsd-kind-icon">Store<wbr>Mapper</a>
-		</li>
-		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="globals.html#storemerger" class="tsd-kind-icon">Store<wbr>Merger</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#storereseter" class="tsd-kind-icon">Store<wbr>Reseter</a>
@@ -2403,9 +2385,6 @@ img {
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="globals.html#usestoremapped" class="tsd-kind-icon">Use<wbr>Store<wbr>Mapped</a>
-		</li>
-		<li class=" tsd-kind-function">
-			<a href="globals.html#createstore" class="tsd-kind-icon">create<wbr>Store</a>
 		</li>
 		<li class=" tsd-kind-function tsd-has-type-parameter">
 			<a href="globals.html#usestore" class="tsd-kind-icon">use<wbr>Store</a>
@@ -2431,10 +2410,7 @@ img {
 			<!-- START doctoc generated TOC please keep comment here to allow auto update -->
 			<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 			<ul>
-				<li><a href="#description">Description</a></li>
-				<li><a href="#usage">Usage</a><ul>
-						<li><a href="#createstore">createStore</a></li>
-						<li><a href="#hookstore">HookStore</a></li>
+				<li><a href="#description">Description</a><ul>
 						<li><a href="#usestore">useStore</a></li>
 						<li><a href="#usestoremapped">useStoreMapped</a></li>
 					</ul>
@@ -2444,73 +2420,20 @@ img {
 			<a href="#description" id="description" style="color: inherit; text-decoration: none;">
 				<h2>Description</h2>
 			</a>
-			<p>Similar to the <code>@bytesoftio/use-value</code> package, this one is optimized for use with objects. It comes with
-			differs, mergers and can be used with a custom mapper / connector.</p>
-			<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-				<h2>Usage</h2>
-			</a>
-			<a href="#createstore" id="createstore" style="color: inherit; text-decoration: none;">
-				<h3>createStore</h3>
-			</a>
-			<p>Creates a new instance of <code>HookStore</code> that can be used inside React, with hooks, as well as outside of the React world.</p>
-			<pre><code class="language-ts"><span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"@bytesoftio/use-store"</span>
-
-<span class="hljs-comment">// create a new store from initial state</span>
-<span class="hljs-keyword">const</span> store1 = createStore({some: <span class="hljs-string">"data"</span>})
-<span class="hljs-comment">// create a new store through an initializer / factory</span>
-<span class="hljs-keyword">const</span> store2 = createStore(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> ({some: <span class="hljs-string">"data"</span>}))</code></pre>
-			<a href="#hookstore" id="hookstore" style="color: inherit; text-decoration: none;">
-				<h3>HookStore</h3>
-			</a>
-			<p>This object can be used inside React, with the <code>useStore</code> hook, as well as outside of React. It is a very simple,
-			observable like object, and comes with many useful methods, necessary to be able to use it outside of React.</p>
-			<pre><code class="language-tsx">import React from &quot;react&quot;
-import { createStore } from &quot;@bytesoftio/use-store&quot;
-
-const store = createStore({firstName: &quot;John&quot;, lastName: &quot;Doe&quot;})
-
-// get the underlying store value, read only
-store.get()
-
-// update all of the store data
-store.set({firstName: &quot;Steve&quot;, lastName: &quot;Jobs&quot;})
-
-// update some of the store data
-store.add({lastName: &quot;Wozniak&quot;})
-
-// reset store back to initial state {firstName: &quot;John&quot;, lastName: &quot;Doe&quot;}
-store.reset()
-
-// reset store state and change its initial value
-store.reset({firstName: &quot;James&quot;, lastName: &quot;Bond&quot;})
-
-// listen to state changes outside of React
-store.listen(state =&gt; console.log(state))
-
-// use store similar to how you would use it in React
-const [state, setState, addState, resetState] = store.use()
-
-const Component = () =&gt; {
-  const [state, setState, addState, resetState] = store.use()
-  const changeName = () =&gt; setState({firstName: &quot;Nikola&quot;, lastName: &quot;Tesla&quot;})
-
-  return (
-    &lt;button onClick={changeName}&gt;{state.firstName}&lt;/button&gt;
-  )
-}</code></pre>
+			<p>This package provides a React integration for <a href="https://github.com/bytesoftio/store">@bytesoftio/store</a>.</p>
 			<a href="#usestore" id="usestore" style="color: inherit; text-decoration: none;">
 				<h3>useStore</h3>
 			</a>
-			<p>For convenience, this helper can be used to hook up a store inside a
-			component, similar to <code>HookStore.use()</code>.</p>
+			<p>Use this helper to hook up a store inside a React component.</p>
 			<pre><code class="language-tsx">import React from &quot;react&quot;
-import { createStore, useStore } from &quot;@bytesoftio/use-store&quot;
+import { createStore } from &quot;@bytesoftio/store&quot;
+import { useStore } from &quot;@bytesoftio/use-store&quot;
 
 const globalStore = createStore({count: 0})
 
 const Component = () =&gt; {
   // create a new store from initial state
-  const [state, setState, addState, resetState] = useStore(() =&gt; {count: 0})
+  const [state, setState, addState, resetState] = useStore(() =&gt; ({count: 0}))
   // create a new store through an initializer / factory function
   const [globalState, setGlobalState, addGlobalState, resetGlobalState] = useStore(globalStore) 
 
@@ -2527,10 +2450,10 @@ const Component = () =&gt; {
 			<a href="#usestoremapped" id="usestoremapped" style="color: inherit; text-decoration: none;">
 				<h3>useStoreMapped</h3>
 			</a>
-			<p>When using big stores, you might want to only use a subset of its data, to improve performance, or change the
-			structure to your likings. You can do this with a mapper.</p>
+			<p>When consuming big stores, you might want to only use a subset of its data, to improve performance, or change the data structure to your likings. You can do this with a mapper.</p>
 			<pre><code class="language-tsx">import React from &quot;react&quot;
-import { createStore, useStoreMapped } from &quot;@bytesoftio/use-store&quot;
+import { createStore } from &quot;@bytesoftio/store&quot;
+import { useStoreMapped } from &quot;@bytesoftio/use-store&quot;
 
 const globalStore = createStore({firstName: &quot;John&quot;, lastName: &quot;Doe&quot;, otherData: &quot;irrelevant&quot;})
 
@@ -2551,26 +2474,10 @@ const Component = () =&gt; {
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Classes</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/store.html" class="tsd-kind-icon">Store</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
-						<h3>Interfaces</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/hookstore.html" class="tsd-kind-icon">Hook<wbr>Store</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-type-alias"><a href="globals.html#createstore" class="tsd-kind-icon">Create<wbr>Store</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#hookkind" class="tsd-kind-icon">Hook<wbr>Kind</a></li>
-							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storecallback" class="tsd-kind-icon">Store<wbr>Callback</a></li>
-							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storediffer" class="tsd-kind-icon">Store<wbr>Differ</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storeinitializer" class="tsd-kind-icon">Store<wbr>Initializer</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storemapper" class="tsd-kind-icon">Store<wbr>Mapper</a></li>
-							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storemerger" class="tsd-kind-icon">Store<wbr>Merger</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#storereseter" class="tsd-kind-icon">Store<wbr>Reseter</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storespread" class="tsd-kind-icon">Store<wbr>Spread</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storeupdater" class="tsd-kind-icon">Store<wbr>Updater</a></li>
@@ -2581,7 +2488,6 @@ const Component = () =&gt; {
 					<section class="tsd-index-section ">
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-function"><a href="globals.html#createstore" class="tsd-kind-icon">create<wbr>Store</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#usestore" class="tsd-kind-icon">use<wbr>Store</a></li>
 							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#usestoremapped" class="tsd-kind-icon">use<wbr>Store<wbr>Mapped</a></li>
 						</ul>
@@ -2591,129 +2497,21 @@ const Component = () =&gt; {
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Type aliases</h2>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="createstore" class="tsd-anchor"></a>
-				<h3>Create<wbr>Store</h3>
-				<div class="tsd-signature tsd-kind-icon">Create<wbr>Store<span class="tsd-signature-symbol">:</span> &lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in types.ts:25</li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-type-parameters-title">Type parameters</h4>
-									<ul class="tsd-type-parameters">
-										<li>
-											<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
-										</li>
-									</ul>
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>initialState: <span class="tsd-signature-type">S</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="hookkind" class="tsd-anchor"></a>
-				<h3>Hook<wbr>Kind</h3>
-				<div class="tsd-signature tsd-kind-icon">Hook<wbr>Kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"react"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"plain"</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in types.ts:18</li>
-					</ul>
-				</aside>
-			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-				<a name="storecallback" class="tsd-anchor"></a>
-				<h3>Store<wbr>Callback</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Callback&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+				<a name="storeinitializer" class="tsd-anchor"></a>
+				<h3>Store<wbr>Initializer</h3>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Initializer&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:17</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/types.ts#L3">types.ts:3</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>T</h4>
 					</li>
 				</ul>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>newState: <span class="tsd-signature-type">S</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-				<a name="storediffer" class="tsd-anchor"></a>
-				<h3>Store<wbr>Differ</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Differ&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in types.ts:23</li>
-					</ul>
-				</aside>
-				<h4 class="tsd-type-parameters-title">Type parameters</h4>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
-					</li>
-				</ul>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>oldState: <span class="tsd-signature-type">S</span></h5>
-										</li>
-										<li>
-											<h5>newState: <span class="tsd-signature-type">S</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storemapper" class="tsd-anchor"></a>
@@ -2721,7 +2519,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Store<wbr>Mapper&lt;S, SM&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">SM</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:22</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/types.ts#L6">types.ts:6</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2755,53 +2553,13 @@ const Component = () =&gt; {
 					</ul>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
-				<a name="storemerger" class="tsd-anchor"></a>
-				<h3>Store<wbr>Merger</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Merger&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">S</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in types.ts:21</li>
-					</ul>
-				</aside>
-				<h4 class="tsd-type-parameters-title">Type parameters</h4>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
-					</li>
-				</ul>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-signature">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-parameters-title">Parameters</h4>
-									<ul class="tsd-parameters">
-										<li>
-											<h5>oldState: <span class="tsd-signature-type">S</span></h5>
-										</li>
-										<li>
-											<h5>newState: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h5>
-										</li>
-									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">S</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="storereseter" class="tsd-anchor"></a>
 				<h3>Store<wbr>Reseter</h3>
 				<div class="tsd-signature tsd-kind-icon">Store<wbr>Reseter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:20</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/types.ts#L5">types.ts:5</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2826,7 +2584,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Store<wbr>Spread&lt;S, SM&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storeupdater" class="tsd-signature-type">StoreUpdater</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storeupdater" class="tsd-signature-type">StoreUpdater</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storereseter" class="tsd-signature-type">StoreReseter</a><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:24</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/types.ts#L7">types.ts:7</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2845,7 +2603,7 @@ const Component = () =&gt; {
 				<div class="tsd-signature tsd-kind-icon">Store<wbr>Updater&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:19</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/types.ts#L4">types.ts:4</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2879,10 +2637,10 @@ const Component = () =&gt; {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="usestore" class="tsd-anchor"></a>
 				<h3>Use<wbr>Store</h3>
-				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<span class="tsd-signature-symbol">:</span> &lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<span class="tsd-signature-symbol">:</span> &lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:26</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/types.ts#L8">types.ts:8</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2890,7 +2648,7 @@ const Component = () =&gt; {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
@@ -2906,7 +2664,7 @@ const Component = () =&gt; {
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>initialState: <span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											<h5>initialState: <a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 										</li>
 									</ul>
 									<h4 class="tsd-returns-title">Returns <a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -2919,10 +2677,10 @@ const Component = () =&gt; {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="usestoremapped" class="tsd-anchor"></a>
 				<h3>Use<wbr>Store<wbr>Mapped</h3>
-				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<wbr>Mapped<span class="tsd-signature-symbol">:</span> &lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<wbr>Mapped<span class="tsd-signature-symbol">:</span> &lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in types.ts:27</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/types.ts#L9">types.ts:9</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2930,7 +2688,7 @@ const Component = () =&gt; {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
@@ -2946,7 +2704,7 @@ const Component = () =&gt; {
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>initialState: <span class="tsd-signature-type">ValueInitializer</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											<h5>initialState: <a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 										</li>
 										<li>
 											<h5>mapper: <a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h5>
@@ -2962,29 +2720,6 @@ const Component = () =&gt; {
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function">
-				<a name="createstore" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Store</h3>
-				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">create<wbr>Store<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/store.html" class="tsd-signature-type">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in createStore.ts:4</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>initialState: <span class="tsd-signature-type">S</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="classes/store.html" class="tsd-signature-type">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
 				<a name="usestore" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Store</h3>
@@ -2995,7 +2730,7 @@ const Component = () =&gt; {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in useStore.ts:5</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/useStore.ts#L5">useStore.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -3018,13 +2753,13 @@ const Component = () =&gt; {
 				<a name="usestoremapped" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Store<wbr>Mapped</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">use<wbr>Store<wbr>Mapped&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, mapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></li>
+					<li class="tsd-signature tsd-kind-icon">use<wbr>Store<wbr>Mapped&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, mapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">setState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">addState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">resetState</span><span class="tsd-signature-symbol">]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in useStoreMapped.ts:5</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/01234c7/src/useStoreMapped.ts#L6">useStoreMapped.ts:6</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -3042,7 +2777,7 @@ const Component = () =&gt; {
 								<h5>mapper: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">setState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">addState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">resetState</span><span class="tsd-signature-symbol">]</span></h4>
 					</li>
 				</ul>
 			</section>

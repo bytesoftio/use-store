@@ -1,6 +1,7 @@
 import React from "react"
 import { mount } from "enzyme"
-import { createStore, useStoreMapped } from "./index"
+import { useStoreMapped } from "./index"
+import { createStore } from "@bytesoftio/store"
 
 describe("useStoreMapped", () => {
   it("uses mapped store with initializer", () => {

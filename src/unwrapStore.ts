@@ -1,14 +1,12 @@
-import { Store } from "./Store"
-import { createStore } from "./createStore"
-import { HookStore } from "./types"
 import { isFunction } from "lodash"
-import { ValueInitializer } from "@bytesoftio/use-value"
+import { StoreInitializer } from "./types"
+import { createStore, ObservableStore, Store } from "@bytesoftio/store"
 
-export const unwrapStore = <S extends object>(initialState: ValueInitializer<S | HookStore<S>>): HookStore<S> => {
+export const unwrapStore = <S extends object>(initialState: StoreInitializer<S | ObservableStore<S>>): ObservableStore<S> => {
   let store = isFunction(initialState) ? initialState() : initialState
 
   if ( ! (store instanceof Store)) {
-    store = createStore(store) as HookStore<S>
+    store = createStore(store) as ObservableStore<S>
   }
 
   return store

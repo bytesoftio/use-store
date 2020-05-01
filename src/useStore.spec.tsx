@@ -1,6 +1,7 @@
 import React from "react"
 import { mount } from "enzyme"
-import { createStore, useStore } from "./index"
+import { useStore } from "./index"
+import { createStore } from "@bytesoftio/store"
 
 describe("useStore", () => {
   it("uses store", async () => {
