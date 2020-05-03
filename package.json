@@ -18,10 +18,10 @@
     "lint": "tsc --noEmit",
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "docs": "doctoc readme.md && typedoc src/index.ts --out docs --hideGenerator --tsconfig tsconfig.build.json --mode library --theme minimal",
-    "release": "yarn run build && np"
+    "release": "yarn run build && np --no-release-draft"
   },
   "dependencies": {
-    "@bytesoftio/store": "^2.0.0",
+    "@bytesoftio/store": "^2.0.4",
     "lodash": "^4.17.15"
   },
   "peerDependencies": {

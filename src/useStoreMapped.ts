@@ -8,13 +8,13 @@ export const useStoreMapped: UseStoreMapped = <S extends object>(initialState, m
   const [reference, setReference] = useState(0)
 
   useEffect(() => {
-    return store.listen((v) => setReference((previous) => previous + 1), mapper, false)
+    return store.listen(() => setReference((previous) => previous + 1), false, mapper)
   }, [])
 
   const mappedState = mapper(store.get())
   const setState = (newState) => store.set(newState)
   const addState = (newState) => store.add(newState)
-  const resetState = (initialState?) => store.reset(initialState)
+  const resetState = (initialState) => store.reset(initialState)
 
   return [
     mappedState,
