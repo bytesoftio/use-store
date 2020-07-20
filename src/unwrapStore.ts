@@ -2,11 +2,11 @@ import { isFunction } from "lodash"
 import { StoreInitializer } from "./types"
 import { createStore, ObservableStore, Store } from "@bytesoftio/store"
 
-export const unwrapStore = <S extends object>(initialState: StoreInitializer<S | ObservableStore<S>>): ObservableStore<S> => {
+export const unwrapStore = <TState extends object>(initialState: StoreInitializer<TState | ObservableStore<TState>>): ObservableStore<TState> => {
   let store = isFunction(initialState) ? initialState() : initialState
 
   if ( ! (store instanceof Store)) {
-    store = createStore(store) as ObservableStore<S>
+    store = createStore(store) as ObservableStore<TState>
   }
 
   return store

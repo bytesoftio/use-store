@@ -1,9 +1,9 @@
 import { ObservableStore } from "@bytesoftio/store"
 
-export type StoreInitializer<T> = T | (() => T)
-export type StoreUpdater<S extends object> = (newState: S) => void
-export type StoreReseter = <S extends object>(initialState?: S) => void
-export type StoreMapper<S extends object, SM extends object> = (state: S) => SM
-export type StoreSpread<S extends object, SM extends object> = [SM, StoreUpdater<S>, StoreUpdater<Partial<S>>, StoreReseter]
-export type UseStore = <S extends object, SM extends object = S>(initialState: StoreInitializer<S | ObservableStore<S>>) => StoreSpread<S, S>
-export type UseStoreMapped = <S extends object, SM extends object = S>(initialState: StoreInitializer<S | ObservableStore<S>>, mapper: StoreMapper<S, SM>) => StoreSpread<S, SM>
+export type StoreInitializer<TState> = TState | (() => TState)
+export type StoreUpdater<TState extends object> = (newState: TState) => void
+export type StoreResetter = <TState extends object>(initialState?: TState) => void
+export type StoreMapper<TState extends object, TStateMapped extends object> = (state: TState) => TStateMapped
+export type StoreSpread<TState extends object, TStateMapped extends object> = [TStateMapped, StoreUpdater<TState>, StoreUpdater<Partial<TState>>, StoreResetter]
+export type UseStore = <TState extends object, TStateMapped extends object = TState>(initialState: StoreInitializer<TState | ObservableStore<TState>>) => StoreSpread<TState, TState>
+export type UseStoreMapped = <TState extends object, TStateMapped extends object = TState>(initialState: StoreInitializer<TState | ObservableStore<TState>>, mapper: StoreMapper<TState, TStateMapped>) => StoreSpread<TState, TStateMapped>

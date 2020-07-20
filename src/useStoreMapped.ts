@@ -2,8 +2,8 @@ import { UseStoreMapped } from "./types"
 import { unwrapStore } from "./unwrapStore"
 import { useEffect, useMemo, useState } from "react"
 
-export const useStoreMapped: UseStoreMapped = <S extends object>(initialState, mapper) => {
-  const store = useMemo(() => unwrapStore<S>(initialState), [])
+export const useStoreMapped: UseStoreMapped = <TState extends object>(initialState, mapper) => {
+  const store = useMemo(() => unwrapStore<TState>(initialState), [])
 
   const [reference, setReference] = useState(0)
 

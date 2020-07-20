@@ -2677,7 +2677,7 @@ img {
 			<a href="globals.html#storemapper" class="tsd-kind-icon">Store<wbr>Mapper</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#storereseter" class="tsd-kind-icon">Store<wbr>Reseter</a>
+			<a href="globals.html#storeresetter" class="tsd-kind-icon">Store<wbr>Resetter</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="globals.html#storespread" class="tsd-kind-icon">Store<wbr>Spread</a>
@@ -2783,7 +2783,7 @@ img {
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storeinitializer" class="tsd-kind-icon">Store<wbr>Initializer</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storemapper" class="tsd-kind-icon">Store<wbr>Mapper</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#storereseter" class="tsd-kind-icon">Store<wbr>Reseter</a></li>
+							<li class="tsd-kind-type-alias"><a href="globals.html#storeresetter" class="tsd-kind-icon">Store<wbr>Resetter</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storespread" class="tsd-kind-icon">Store<wbr>Spread</a></li>
 							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#storeupdater" class="tsd-kind-icon">Store<wbr>Updater</a></li>
 							<li class="tsd-kind-type-alias"><a href="globals.html#usestore" class="tsd-kind-icon">Use<wbr>Store</a></li>
@@ -2805,35 +2805,35 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storeinitializer" class="tsd-anchor"></a>
 				<h3>Store<wbr>Initializer</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Initializer&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Initializer&lt;TState&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/types.ts#L3">types.ts:3</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/types.ts#L3">types.ts:3</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T</h4>
+						<h4>TState</h4>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storemapper" class="tsd-anchor"></a>
 				<h3>Store<wbr>Mapper</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Mapper&lt;S, SM&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">SM</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Mapper&lt;TState, TStateMapped&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TStateMapped</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/types.ts#L6">types.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/types.ts#L6">types.ts:6</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 					<li>
-						<h4>SM<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TStateMapped<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 				</ul>
 				<div class="tsd-type-declaration">
@@ -2841,17 +2841,17 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SM</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TStateMapped</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>state: <span class="tsd-signature-type">S</span></h5>
+											<h5>state: <span class="tsd-signature-type">TState</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">SM</span></h4>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TStateMapped</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -2859,12 +2859,12 @@ img {
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="storereseter" class="tsd-anchor"></a>
-				<h3>Store<wbr>Reseter</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Reseter<span class="tsd-signature-symbol">:</span> &lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">S</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+				<a name="storeresetter" class="tsd-anchor"></a>
+				<h3>Store<wbr>Resetter</h3>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Resetter<span class="tsd-signature-symbol">:</span> &lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">TState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/types.ts#L5">types.ts:5</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/types.ts#L5">types.ts:5</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2872,20 +2872,20 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">S</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">TState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-type-parameters-title">Type parameters</h4>
 									<ul class="tsd-type-parameters">
 										<li>
-											<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+											<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 										</li>
 									</ul>
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> initialState: <a href="" class="tsd-signature-type">S</a></h5>
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> initialState: <a href="" class="tsd-signature-type">TState</a></h5>
 										</li>
 									</ul>
 									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2898,35 +2898,35 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storespread" class="tsd-anchor"></a>
 				<h3>Store<wbr>Spread</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Spread&lt;S, SM&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storeupdater" class="tsd-signature-type">StoreUpdater</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storeupdater" class="tsd-signature-type">StoreUpdater</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storereseter" class="tsd-signature-type">StoreReseter</a><span class="tsd-signature-symbol">]</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Spread&lt;TState, TStateMapped&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">TStateMapped</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storeupdater" class="tsd-signature-type">StoreUpdater</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storeupdater" class="tsd-signature-type">StoreUpdater</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="globals.html#storeresetter" class="tsd-signature-type">StoreResetter</a><span class="tsd-signature-symbol">]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/types.ts#L7">types.ts:7</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/types.ts#L7">types.ts:7</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 					<li>
-						<h4>SM<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TStateMapped<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storeupdater" class="tsd-anchor"></a>
 				<h3>Store<wbr>Updater</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Updater&lt;S&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Updater&lt;TState&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/types.ts#L4">types.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/types.ts#L4">types.ts:4</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 				</ul>
 				<div class="tsd-type-declaration">
@@ -2934,14 +2934,14 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>newState: <span class="tsd-signature-type">S</span></h5>
+											<h5>newState: <span class="tsd-signature-type">TState</span></h5>
 										</li>
 									</ul>
 									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2954,10 +2954,10 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="usestore" class="tsd-anchor"></a>
 				<h3>Use<wbr>Store</h3>
-				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<span class="tsd-signature-symbol">:</span> &lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<span class="tsd-signature-symbol">:</span> &lt;TState, TStateMapped&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/types.ts#L8">types.ts:8</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/types.ts#L8">types.ts:8</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2965,26 +2965,26 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;TState, TStateMapped&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-type-parameters-title">Type parameters</h4>
 									<ul class="tsd-type-parameters">
 										<li>
-											<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+											<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 										</li>
 										<li>
-											<h4>SM<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+											<h4>TStateMapped<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 										</li>
 									</ul>
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>initialState: <a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											<h5>initialState: <a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4 class="tsd-returns-title">Returns <a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -2994,10 +2994,10 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="usestoremapped" class="tsd-anchor"></a>
 				<h3>Use<wbr>Store<wbr>Mapped</h3>
-				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<wbr>Mapped<span class="tsd-signature-symbol">:</span> &lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">Use<wbr>Store<wbr>Mapped<span class="tsd-signature-symbol">:</span> &lt;TState, TStateMapped&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TStateMapped</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TStateMapped</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/types.ts#L9">types.ts:9</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/types.ts#L9">types.ts:9</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -3005,29 +3005,29 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;S, SM&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;TState, TStateMapped&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">: </span><a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TStateMapped</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TStateMapped</span><span class="tsd-signature-symbol">&gt;</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-type-parameters-title">Type parameters</h4>
 									<ul class="tsd-type-parameters">
 										<li>
-											<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+											<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 										</li>
 										<li>
-											<h4>SM<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+											<h4>TStateMapped<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 										</li>
 									</ul>
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>initialState: <a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											<h5>initialState: <a href="globals.html#storeinitializer" class="tsd-signature-type">StoreInitializer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableStore</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 										</li>
 										<li>
-											<h5>mapper: <a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											<h5>mapper: <a href="globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TStateMapped</span><span class="tsd-signature-symbol">&gt;</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4 class="tsd-returns-title">Returns <a href="globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TStateMapped</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -3041,19 +3041,19 @@ img {
 				<a name="usestore" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Store</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">use<wbr>Store&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span>&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">S</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></li>
+					<li class="tsd-signature tsd-kind-icon">use<wbr>Store&lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span>&lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">TState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/useStore.ts#L5">useStore.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/useStore.ts#L5">useStore.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
 						<ul class="tsd-type-parameters">
 							<li>
-								<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+								<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 							</li>
 						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3062,7 +3062,7 @@ img {
 								<h5>initialState: <span class="tsd-signature-type">any</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span>&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">S</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span>&lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">TState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">]</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -3070,19 +3070,19 @@ img {
 				<a name="usestoremapped" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> use<wbr>Store<wbr>Mapped</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">use<wbr>Store<wbr>Mapped&lt;S&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, mapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">setState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">addState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">resetState</span><span class="tsd-signature-symbol">]</span></li>
+					<li class="tsd-signature tsd-kind-icon">use<wbr>Store<wbr>Mapped&lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, mapper<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">setState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">addState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">resetState</span><span class="tsd-signature-symbol">]</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/fa2d083/src/useStoreMapped.ts#L5">useStoreMapped.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/bytesoftio/use-store/blob/7e645db/src/useStoreMapped.ts#L5">useStoreMapped.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
 						<ul class="tsd-type-parameters">
 							<li>
-								<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+								<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 							</li>
 						</ul>
 						<h4 class="tsd-parameters-title">Parameters</h4>
