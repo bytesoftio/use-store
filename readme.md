@@ -32,13 +32,15 @@ import { useStore } from "@bytesoftio/use-store"
 const globalStore = createStore({count: 0})
 
 const Component = () => {
-  // create a new store from initial state
-  const [state, setState, addState, resetState] = useStore(() => ({count: 0}))
+  // create a new store from initial state, returns a state object and 
+  // the actual store that has been connected to React
+  const [state1, store1] = useStore(() => ({count: 0}))
+
   // create a new store through an initializer / factory function
-  const [globalState, setGlobalState, addGlobalState, resetGlobalState] = useStore(globalStore) 
+  const [state2, store2] = useStore(globalStore) 
   
-  const increment = () => addState({ count: state.count + 1 })
-  const incrementGlobal = () => addGlobalState({ count: globalState.count + 1 })
+  const increment = () => store1.setState({ count: state.count + 1 })
+  const incrementGlobal = () => store2.setState({ count: globalState.count + 1 })
  
   return (
     <div>
@@ -61,7 +63,7 @@ import { useStoreMapped } from "@bytesoftio/use-store"
 const globalStore = createStore({firstName: "John", lastName: "Doe", otherData: "irrelevant"})
 
 const Component = () => {
-  const [state, setState, addState, resetState] = useStoreMapped(globalStore, (state) => {
+  const [state, store] = useStoreMapped(globalStore, (state) => {
     return {fullName: `${state.firstName} ${state.lastName}`}
   })
 

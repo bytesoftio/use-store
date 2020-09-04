@@ -12,14 +12,6 @@ export const useStoreMapped: UseStoreMapped = <TState extends object>(initialSta
   }, [])
 
   const mappedState = mapper(store.get())
-  const setState = (newState) => store.set(newState)
-  const addState = (newState) => store.add(newState)
-  const resetState = (initialState) => store.reset(initialState)
 
-  return [
-    mappedState,
-    setState,
-    addState,
-    resetState,
-  ]
+  return [mappedState, store]
 }

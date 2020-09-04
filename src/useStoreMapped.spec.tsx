@@ -1,7 +1,7 @@
 import React from "react"
 import { mount } from "enzyme"
 import { useStoreMapped } from "./index"
-import { createStore } from "@bytesoftio/store"
+import { createStore, ObservableStore } from "@bytesoftio/store"
 import { act } from "react-dom/test-utils"
 
 describe("useStoreMapped", () => {
@@ -12,7 +12,7 @@ describe("useStoreMapped", () => {
       const [state] = useStoreMapped(store, (state) => ({ bar: state.foo }))
 
       return (
-        <h1>{state.bar}</h1>
+        <h1>{ state.bar }</h1>
       )
     }
 
@@ -23,21 +23,17 @@ describe("useStoreMapped", () => {
   })
 
   it("updates and resets state", () => {
-    const store = createStore({ foo: "bar" })
+    const sharedStore = createStore({ foo: "bar" })
     let renders = 0
-    let receivedSetState
-    let receivedAddState
-    let receivedResetState
+    let receivedStore: ObservableStore<any>
 
     const Test = () => {
       renders++
-      const [state, setState, addState, resetState] = useStoreMapped(store, (state) => ({ bar: state.foo }))
-      receivedSetState = setState
-      receivedAddState = addState
-      receivedResetState = resetState
+      const [state, store] = useStoreMapped(sharedStore, (state) => ({ bar: state.foo }))
+      receivedStore = store
 
       return (
-        <h1>{state.bar}</h1>
+        <h1>{ state.bar }</h1>
       )
     }
 
@@ -45,67 +41,67 @@ describe("useStoreMapped", () => {
     const target = () => wrapper.find("h1")
 
     expect(target().text()).toBe("bar")
-    expect(store.get()).toEqual({foo: "bar"})
+    expect(sharedStore.get()).toEqual({ foo: "bar" })
     expect(renders).toBe(1)
 
-    act(() => receivedSetState({foo: "baz"}))
+    act(() => receivedStore.set({ foo: "baz" }))
 
     expect(target().text()).toBe("baz")
-    expect(store.get()).toEqual({foo: "baz"})
+    expect(sharedStore.get()).toEqual({ foo: "baz" })
     expect(renders).toBe(2)
 
-    act(() => receivedSetState({foo: "baz", yolo: "swag"}))
+    act(() => receivedStore.set({ foo: "baz", yolo: "swag" }))
 
     expect(target().text()).toBe("baz")
-    expect(store.get()).toEqual({foo: "baz", yolo: "swag"})
+    expect(sharedStore.get()).toEqual({ foo: "baz", yolo: "swag" })
     expect(renders).toBe(2)
 
-    act(() => receivedAddState({foo: "bar", ding: "dong"}))
+    act(() => receivedStore.add({ foo: "bar", ding: "dong" }))
 
     expect(target().text()).toBe("bar")
-    expect(store.get()).toEqual({foo: "bar", yolo: "swag", ding: "dong"})
+    expect(sharedStore.get()).toEqual({ foo: "bar", yolo: "swag", ding: "dong" })
     expect(renders).toBe(3)
 
-    act(() => receivedResetState())
+    act(() => receivedStore.reset())
 
     expect(target().text()).toBe("bar")
-    expect(store.get()).toEqual({foo: "bar"})
+    expect(sharedStore.get()).toEqual({ foo: "bar" })
     expect(renders).toBe(3)
 
-    act(() => receivedResetState({foo: "baz", yolo: "swag"}))
+    act(() => receivedStore.reset({ foo: "baz", yolo: "swag" }))
 
     expect(target().text()).toBe("baz")
-    expect(store.get()).toEqual({foo: "baz", yolo: "swag"})
+    expect(sharedStore.get()).toEqual({ foo: "baz", yolo: "swag" })
     expect(renders).toBe(4)
 
-    act(() => store.set({foo: "bar"}))
+    act(() => sharedStore.set({ foo: "bar" }))
 
     expect(target().text()).toBe("bar")
-    expect(store.get()).toEqual({foo: "bar"})
+    expect(sharedStore.get()).toEqual({ foo: "bar" })
     expect(renders).toBe(5)
 
-    act(() => store.set({foo: "baz", yolo: "swag"} as any))
+    act(() => sharedStore.set({ foo: "baz", yolo: "swag" } as any))
 
     expect(target().text()).toBe("baz")
-    expect(store.get()).toEqual({foo: "baz", yolo: "swag"})
+    expect(sharedStore.get()).toEqual({ foo: "baz", yolo: "swag" })
     expect(renders).toBe(6)
 
-    act(() => store.add({foo: "bar", ding: "dong"} as any))
+    act(() => sharedStore.add({ foo: "bar", ding: "dong" } as any))
 
     expect(target().text()).toBe("bar")
-    expect(store.get()).toEqual({foo: "bar", yolo: "swag", ding: "dong"})
+    expect(sharedStore.get()).toEqual({ foo: "bar", yolo: "swag", ding: "dong" })
     expect(renders).toBe(7)
 
-    act(() => store.reset())
+    act(() => sharedStore.reset())
 
     expect(target().text()).toBe("baz")
-    expect(store.get()).toEqual({foo: "baz", yolo: "swag"})
+    expect(sharedStore.get()).toEqual({ foo: "baz", yolo: "swag" })
     expect(renders).toBe(8)
 
-    act(() => store.reset({foo: "baz", yolo: "swag"} as any))
+    act(() => sharedStore.reset({ foo: "baz", yolo: "swag" } as any))
 
     expect(target().text()).toBe("baz")
-    expect(store.get()).toEqual({foo: "baz", yolo: "swag"})
+    expect(sharedStore.get()).toEqual({ foo: "baz", yolo: "swag" })
     expect(renders).toBe(8)
   })
 })
