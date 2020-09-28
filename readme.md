@@ -12,7 +12,6 @@
 
 - [Description](#description)
   - [useStore](#usestore)
-  - [useStoreMapped](#usestoremapped)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -34,43 +33,19 @@ const globalStore = createStore({count: 0})
 const Component = () => {
   // create a new store from initial state, returns a state object and 
   // the actual store that has been connected to React
-  const [state1, store1] = useStore(() => ({count: 0}))
+  const store1 = useStore(() => ({count: 0}))
 
   // create a new store through an initializer / factory function
-  const [state2, store2] = useStore(globalStore) 
+  const store2 = useStore(globalStore) 
   
-  const increment = () => store1.setState({ count: state.count + 1 })
-  const incrementGlobal = () => store2.setState({ count: globalState.count + 1 })
+  const increment = () => store1.set({ count: state.count + 1 })
+  const incrementGlobal = () => store2.set({ count: globalState.count + 1 })
  
   return (
     <div>
-      <button onClick={increment}>local count: {state.count}</button>    
-      <button onClick={incrementGlobal}>global count: {globalState.count}</button>    
+      <button onClick={increment}>local count: {store1.get().count}</button>    
+      <button onClick={incrementGlobal}>global count: {globalStore.get().count}</button>    
     </div>
   )
 } 
 ```
-
-### useStoreMapped
-
-When consuming big stores, you might want to only use a subset of its data, to improve performance, or change the data structure to your likings. You can do this with a mapper.
-
- ```tsx
-import React from "react"
-import { createStore } from "@bytesoftio/store"
-import { useStoreMapped } from "@bytesoftio/use-store"
-
-const globalStore = createStore({firstName: "John", lastName: "Doe", otherData: "irrelevant"})
-
-const Component = () => {
-  const [state, store] = useStoreMapped(globalStore, (state) => {
-    return {fullName: `${state.firstName} ${state.lastName}`}
-  })
-
-  return (
-    <div>
-      I will only rerender when <b>firstName</b> or <b>lastName</b> have changed. The name is: {state.fullName}
-    </div>
-  )
-}
- ```

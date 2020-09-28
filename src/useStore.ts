@@ -1,9 +1,15 @@
 import { UseStore } from "./types"
-import { StoreMapper } from "@bytesoftio/store"
-import { useStoreMapped } from "./useStoreMapped"
+import { useEffect, useMemo, useState } from "react"
+import { unwrapStore } from "./unwrapStore"
 
 export const useStore: UseStore = <TState extends object>(initialState) => {
-  const mapper: StoreMapper<TState, TState> = (state) => state
+  const store = useMemo(() => unwrapStore<TState>(initialState), [])
 
-  return useStoreMapped(initialState, mapper)
+  const [reference, setReference] = useState(0)
+
+  useEffect(() => {
+    return store.listen(() => setReference((previous) => previous + 1), false)
+  }, [])
+
+  return store
 }

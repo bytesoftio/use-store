@@ -10,10 +10,10 @@ describe("useStore", () => {
     const store = createStore({ foo: "bar" })
 
     const Test = () => {
-      const [state] = useStore(store)
+      const state = useStore(store)
 
       return (
-        <h1>{ state.foo }</h1>
+        <h1>{ state.get().foo }</h1>
       )
     }
 
@@ -27,10 +27,10 @@ describe("useStore", () => {
     const initializer = () => createStore({ foo: "bar" })
 
     const Test = () => {
-      const [state] = useStore(initializer)
+      const state = useStore(initializer)
 
       return (
-        <h1>{ state.foo }</h1>
+        <h1>{ state.get().foo }</h1>
       )
     }
 
@@ -44,10 +44,10 @@ describe("useStore", () => {
     const initializer = { foo: "bar" }
 
     const Test = () => {
-      const [state] = useStore(initializer)
+      const state = useStore(initializer)
 
       return (
-        <h1>{ state.foo }</h1>
+        <h1>{ state.get().foo }</h1>
       )
     }
 
@@ -61,10 +61,10 @@ describe("useStore", () => {
     const initializer = () => ({ foo: "bar" })
 
     const Test = () => {
-      const [state] = useStore(initializer)
+      const state = useStore(initializer)
 
       return (
-        <h1>{ state.foo }</h1>
+        <h1>{ state.get().foo }</h1>
       )
     }
 
@@ -81,11 +81,11 @@ describe("useStore", () => {
 
     const Test = () => {
       renders++
-      const [state, store] = useStore(sharedStore)
-      receivedStore = store
+      const state = useStore(sharedStore)
+      receivedStore = state
 
       return (
-        <h1>{ state.foo }</h1>
+        <h1>{ state.get().foo }</h1>
       )
     }
 
