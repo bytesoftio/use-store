@@ -38,13 +38,13 @@ const Component = () => {
   // create a new store through an initializer / factory function
   const store2 = useStore(globalStore) 
   
-  const increment = () => store1.set({ count: state.count + 1 })
-  const incrementGlobal = () => store2.set({ count: globalState.count + 1 })
+  const increment = () => store1.set({ count: store1.count + 1 })
+  const incrementGlobal = () => store2.set({ count: store2.count + 1 })
  
   return (
     <div>
       <button onClick={increment}>local count: {store1.get().count}</button>    
-      <button onClick={incrementGlobal}>global count: {globalStore.get().count}</button>    
+      <button onClick={incrementGlobal}>global count: {store2.get().count}</button>    
     </div>
   )
 } 
