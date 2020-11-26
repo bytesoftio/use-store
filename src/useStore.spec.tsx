@@ -7,13 +7,13 @@ import { ObservableStore } from "../../store/src"
 
 describe("useStore", () => {
   it("uses store", async () => {
-    const store = createStore({ foo: "bar" })
+    const sharedStore = createStore({ foo: "bar" })
 
     const Test = () => {
-      const state = useStore(store)
+      const store = useStore(sharedStore)
 
       return (
-        <h1>{ state.get().foo }</h1>
+        <h1>{ store.get().foo }</h1>
       )
     }
 
@@ -27,10 +27,10 @@ describe("useStore", () => {
     const initializer = () => createStore({ foo: "bar" })
 
     const Test = () => {
-      const state = useStore(initializer)
+      const store = useStore(initializer)
 
       return (
-        <h1>{ state.get().foo }</h1>
+        <h1>{ store.get().foo }</h1>
       )
     }
 
@@ -44,10 +44,10 @@ describe("useStore", () => {
     const initializer = { foo: "bar" }
 
     const Test = () => {
-      const state = useStore(initializer)
+      const store = useStore(initializer)
 
       return (
-        <h1>{ state.get().foo }</h1>
+        <h1>{ store.get().foo }</h1>
       )
     }
 
@@ -61,10 +61,10 @@ describe("useStore", () => {
     const initializer = () => ({ foo: "bar" })
 
     const Test = () => {
-      const state = useStore(initializer)
+      const store = useStore(initializer)
 
       return (
-        <h1>{ state.get().foo }</h1>
+        <h1>{ store.get().foo }</h1>
       )
     }
 
@@ -81,11 +81,11 @@ describe("useStore", () => {
 
     const Test = () => {
       renders++
-      const state = useStore(sharedStore)
-      receivedStore = state
+      const store = useStore(sharedStore)
+      receivedStore = store
 
       return (
-        <h1>{ state.get().foo }</h1>
+        <h1>{ store.get().foo }</h1>
       )
     }
 

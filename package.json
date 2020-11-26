@@ -21,7 +21,7 @@
     "release": "yarn run build && np --no-release-draft"
   },
   "dependencies": {
-    "@bytesoftio/store": "^2.0.4",
+    "@bytesoftio/store": "^3.0.0",
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
